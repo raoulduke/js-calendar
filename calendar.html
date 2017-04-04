@@ -24,8 +24,8 @@
         }
         table#calendar td {
             border: 1px solid white;
-            padding: 5px;
             text-align: center;
+            width: 14.28571428571429%;
         }
         table#calendar td.today {
             font-weight: bold;
@@ -53,7 +53,6 @@
 <script>window.jQuery || document.write('<script src="/js/libs/jquery-1.7.1.min.js"><\/script>')</script>
 
 <script>
-$(document).ready(function() {
 
     /* Custom calendar */
     var now = new Date();
@@ -67,7 +66,7 @@ $(document).ready(function() {
     var rows = 6;                       // 6 possible weeks in a month
     var calendarDay;                    // calendar dates
     var nextCalendarDay = 1;            // calendar dates for next month
-    var prevCalendarDay = daysInPrevMonth - (columns - firstDayOfMonth); // calendar dates for the previous month
+    var prevCalendarDay = daysInPrevMonth - (firstDayOfMonth - 1); // calendar dates for the previous month
     var $calendar = $('table#calendar tbody');
 
     for (var i = 0; i < rows; i++) {
@@ -98,7 +97,6 @@ $(document).ready(function() {
 
     $('<tr><td colspan="7">' + now.toLocaleString("en-us", {month: "long"}) + ', ' + now.getFullYear() + '</td></tr>').prependTo('table#calendar thead');
 
-});
 </script>
 
 </body>
