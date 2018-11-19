@@ -7,47 +7,18 @@
     <meta charset="utf-8" />
     <title>JS/HTML Calendar Implementation</title>
 
-    <style>
-        table#calendar {
-            border-collapse: collapse;
-            width: 200px;
-        }
-        table#calendar thead {
-            color: dodgerblue;
-        }
-        table#calendar td {
-            border: 1px solid black;
-            text-align: center;
-            width: 14.28571428571429%;
-        }
-        table#calendar td.today {
-            font-weight: bold;
-            color: dodgerblue;
-            outline: 2px solid dodgerblue;
-        }
-        table#calendar td.inactive {
-            color: grey;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="./style/mcal.css" />
 
 </head>
-<body id="">
+<body>
 
-<table id="calendar">
-    <thead>
-        <tr>
-            <td>Sun</td><td>Mon</td><td>Tue</td><td>Wed</td><td>Thu</td><td>Fri</td><td>Sat</td>
-        </tr>
-    </thead>
-    <tbody></tbody>
-</table>
+    <div id="mcal"></div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="/js/libs/jquery-1.7.1.min.js"><\/script>')</script>
-<script src="./mcal.js"></script>
-<script>
-    mcal.init('table#calendar');
-</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="./mcal.js"></script>
+    <script>
+        mcal.init();
+    </script>
 
 </body>
 </html>

@@ -1,5 +1,6 @@
 mcal = {
-    init: function (attachClass) {
+    init: function (initSelector) {
+        let selector = initSelector ? initSelector : '#mcal';
         let now = new Date();
         let today = now.getDate();          // today's day of the month
         now.setDate(1);                     // first of the month
@@ -12,12 +13,24 @@ mcal = {
         let calendarDay;                    // calendar dates
         let nextCalendarDay = 1;            // calendar dates for next month
         let prevCalendarDay = daysInPrevMonth - (firstDayOfMonth - 1); // calendar dates for the previous month
-        let $calendar = $(attachClass + ' tbody');
+        let parentContainer = $(selector);
 
-        for (var i = 0; i < rows; i++) {
-            let $row = $('<tr></tr>').appendTo($calendar);
+        parentContainer.html(
+            '   <table>\n' +
+            '        <thead>\n' +
+            '            <tr>\n' +
+            '                <td>Su</td><td>M</td><td>Tu</td><td>W</td><td>Th</td><td>F</td><td>Sa</td>\n' +
+            '            </tr>\n' +
+            '        </thead>\n' +
+            '        <tbody></tbody>\n' +
+            '    </table>');
 
-            for (var j = 0; j < columns; j++) {
+        let $calendarBody = $(selector + ' tbody');
+
+        for (let i = 0; i < rows; i++) {
+            let $row = $('<tr></tr>').appendTo($calendarBody);
+
+            for (let j = 0; j < columns; j++) {
                 calendarDay = (index - firstDayOfMonth + 1);
 
                 if (index < firstDayOfMonth) {
@@ -41,6 +54,6 @@ mcal = {
         }
 
         $('<tr><td colspan="7">' + now.toLocaleString("en-us", {month: "long"}) + ', ' + now.getFullYear() + '</td></tr>')
-            .prependTo(attachClass + ' thead');
+            .prependTo(selector + ' thead');
     }
 };

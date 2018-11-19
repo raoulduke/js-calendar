@@ -1,0 +1,17 @@
+#mcal table {
+  border-collapse: collapse;
+  margin-top: 40px;
+  width: 100%;
+
+  td {
+    text-align: center;
+    width: 14.28571428571429%;
+  }
+  .today {
+    font-weight: bold;
+    border: 2px solid #a3602f;
+  }
+  .inactive {
+    color: grey;
+  }
+}
